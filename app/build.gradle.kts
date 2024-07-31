@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+//    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -16,6 +17,18 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+//    buildscript {
+//        val navigationVersion by extra("2.7.7")
+//        repositories {
+//            google()
+//            mavenCentral()
+//        }
+//        dependencies {
+//            classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
+//        }
+//    }
+
 
     buildFeatures {
         viewBinding = true
@@ -40,6 +53,14 @@ android {
 }
 
 dependencies {
+
+    //Navigation components
+    val nav_version = "2.7.7"
+    // Kotlin
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
     implementation (libs.androidx.recyclerview.v130)
     implementation (libs.androidx.fragment.ktx)
